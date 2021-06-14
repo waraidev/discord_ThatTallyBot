@@ -1,7 +1,9 @@
 import discord
-import env
+import os
 
 client = discord.Client()
+
+token = os.getenv('DISCORD_BOT_TOKEN')
 
 client.tally = 0
 
@@ -22,4 +24,4 @@ async def on_message(message):
         client.tally = int(message.content[5:])
         await message.channel.send("The current tally is: " + str(client.tally))
 
-client.run(env.token())
+client.run(token)
