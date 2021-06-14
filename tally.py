@@ -1,4 +1,5 @@
 import discord
+import env
 
 client = discord.Client()
 
@@ -21,4 +22,4 @@ async def on_message(message):
         client.tally = int(message.content[5:])
         await message.channel.send("The current tally is: " + str(client.tally))
 
-client.run('ODUzNzg2MzE3MjU5NjY5NTI0.YMaceA.itRy4aT2ZSepVJHADFClN17LVrs')
+client.run(env.token())
